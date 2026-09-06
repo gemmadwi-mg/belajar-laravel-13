@@ -1,6 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+
+// Halaman Utama / Redirect
+Route::get('/', function () {
+    return redirect()->route('products.index');
+});
+
+// Resource route otomatis mencakup: index, create, store, show, edit, update, destroy
+Route::resource('products', ProductController::class);
 
 // 1. Halaman Beranda
 Route::get('/', function () {
